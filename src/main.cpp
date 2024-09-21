@@ -1,18 +1,20 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
+#include "esp_camera.h"
+#define CAMERA_MODEL_XIAO_ESP32S3 // Has PSRAM
+#include "camera_pins.h"
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+    Serial.begin(115200);
+    while(!Serial);
+    Serial.setDebugOutput(true);
+
+    pinMode(LED_GPIO_NUM, OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+    digitalWrite(LED_GPIO_NUM, HIGH);
+    delay(500);
+    digitalWrite(LED_GPIO_NUM, LOW);
+    delay(500);
 }
