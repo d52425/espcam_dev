@@ -66,7 +66,7 @@ void loop() {
     delay(100);
 
     Serial.println("esp_camera_fb_get()");
-    camera_fb_t *fb = esp_camera_fb_get();
+    // camera_fb_t *fb = esp_camera_fb_get();
     if (!fb) {
         Serial.println("Failed to get camera frame buffer");
         return;
@@ -77,12 +77,12 @@ void loop() {
     int8_t bmp[96*96];
     for(uint16_t h = 0; h < 96; h++) {
         for(uint16_t w = 0; w < 96; w++) {
-            u8_t c = *(fb->buf + (h*96+w));
-            Serial.println(c);
+            u8_t c = *(fb->buf + (h+w*96));
+            // Serial.println(c);
             if(c < 127) {
-                display.drawPixel(w, h, BLACK);
+                display.drawPixel(w, 96-h, BLACK);
             } else {
-                display.drawPixel(w, h, WHITE);
+                display.drawPixel(w, 96-h, WHITE);
             }
         }
     }
