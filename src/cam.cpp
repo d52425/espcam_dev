@@ -49,6 +49,9 @@ void initCamera() {
 #endif
     }
 
+    config.frame_size = FRAMESIZE_96X96;
+    config.pixel_format = PIXFORMAT_GRAYSCALE;
+
     // camera init
     esp_err_t err = esp_camera_init(&config);
     if (err != ESP_OK) {
