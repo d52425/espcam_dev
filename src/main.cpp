@@ -1,13 +1,13 @@
 #include <Arduino.h>
 
-#include "esp_camera.h"
-#define CAMERA_MODEL_XIAO_ESP32S3 // Has PSRAM
-#include "camera_pins.h"
+#include <cam.h>
 
 void setup() {
     Serial.begin(115200);
     while(!Serial);
     Serial.setDebugOutput(true);
+
+    initCamera();
 
     pinMode(LED_GPIO_NUM, OUTPUT);
 }
