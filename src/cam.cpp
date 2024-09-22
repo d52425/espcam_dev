@@ -33,13 +33,13 @@ void initCamera() {
     //                      for larger pre-allocated frame buffer.
     if(config.pixel_format == PIXFORMAT_JPEG){
         if(psramFound()){
-        config.jpeg_quality = 10;
-        config.fb_count = 2;
-        config.grab_mode = CAMERA_GRAB_LATEST;
+            config.jpeg_quality = 10;
+            config.fb_count = 2;
+            config.grab_mode = CAMERA_GRAB_LATEST;
         } else {
-        // Limit the frame size when PSRAM is not available
-        config.frame_size = FRAMESIZE_SVGA;
-        config.fb_location = CAMERA_FB_IN_DRAM;
+            // Limit the frame size when PSRAM is not available
+            config.frame_size = FRAMESIZE_SVGA;
+            config.fb_location = CAMERA_FB_IN_DRAM;
         }
     } else {
         // Best option for face detection/recognition
