@@ -65,8 +65,8 @@ void loop() {
     digitalWrite(LED_GPIO_NUM, LOW);
     delay(100);
 
-    Serial.println("esp_camera_fb_get()");
-    // camera_fb_t *fb = esp_camera_fb_get();
+    // Serial.println("esp_camera_fb_get()");
+    camera_fb_t *fb = esp_camera_fb_get();
     if (!fb) {
         Serial.println("Failed to get camera frame buffer");
         return;
